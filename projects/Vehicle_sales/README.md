@@ -1,0 +1,3 @@
+| PROJECT NAME | DESCRIPTION |
+| ------------- | ------------- |
+| Vehicle sales | <ul><li>RFM Analysis. Сегментирование пользователей по категориям: recency (как давно осуществляли покупку), frequency (как часто покупают), monetary value (сколько они тратят)</li><li>Какие товары чаще покупают *вместе*?</li>![Sales Dash1](https://github.com/leylavel/SQL/assets/61410191/9427d5f1-283f-45ac-a602-f82a89b57397)![Sales Dash2](https://github.com/leylavel/SQL/assets/61410191/09353138-cd0f-4dee-963d-19c4eab21644)</ul>
