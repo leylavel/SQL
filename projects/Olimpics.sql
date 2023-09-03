@@ -52,3 +52,21 @@ FROM [dbo].[athlete_events] ae JOIN [dbo].[noc_regions] nr on ae.NOC = nr.NOC
 GROUP BY nr.region
 HAVING COUNT(DISTINCT games) = (SELECT Count(DISTINCT games) FROM [dbo].[athlete_events])
 
+
+--6. Identify the sport which was played in all summer olympics.
+SELECT Sport, COUNT(DISTINCT Year) as no_of_games
+FROM [dbo].[athlete_events]
+WHERE Season = 'Summer'
+GROUP BY Sport
+HAVING COUNT(DISTINCT Year) = (SELECT COUNT(DISTINCT Year) as summer_games FROM [dbo].[athlete_events] WHERE Season = 'Summer')
+
+--7. Which Sports were just played only once in the olympics.
+WITH t1 as (
+	SELECT Sport, COUNT(distinct Year) as no_of_games
+	FROM [dbo].[athlete_events]
+	GROUP BY Sport
+	HAVING COUNT(distinct Year) = 1
+)
+
+SELECT DISTINCT t1.Sport, no_of_games, games
+FROM [dbo].[athlete_events] t2 JOIN t1 on t1.Sport = t2.Sport
